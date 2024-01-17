@@ -10,6 +10,7 @@ def chrome_driver(request):
     options.add_argument("--no-sandbox")
     options.add_argument("--disable-dev-shm-usage")
     options.add_argument("--window-size=1920,1080")
+    options.add_argument("--disable-extensions")
     driver = webdriver.Chrome(options=options)
     request.cls.chrome_driver = driver
     yield driver
