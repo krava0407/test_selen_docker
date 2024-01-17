@@ -5,6 +5,8 @@ import pytest
 
 from base.base_test import BaseTest
 
+from src.test_data import *
+
 
 @allure.feature("Profile functionality")
 class TestProfileFuture(BaseTest):
@@ -23,6 +25,21 @@ class TestProfileFuture(BaseTest):
         self.dashboard_page.click_my_info_link()
         self.personal_page.is_opened()
         self.personal_page.change_name(self.new_name)
-        self.personal_page.click_save_button()
+        self.my_info_page.click_save_button()
         self.personal_page.is_changes_save(self.new_name)
         self.personal_page.make_screenshot("Final result")
+        self.contact_details_page.click_contact_details_link()
+        self.contact_details_page.is_opened()
+        self.contact_details_page.enter_street_1(
+            street_name=ContactDetailsData.street_1)
+        self.contact_details_page.enter_street_2(
+            street_name=ContactDetailsData.street_2)
+        self.contact_details_page.enter_city(
+            city_name=ContactDetailsData.city)
+        self.contact_details_page.enter_country()
+        self.my_info_page.click_save_button()
+        self.contact_details_page.wait_spinner()
+        self.personal_page.make_screenshot("Final result 2")
+
+
+

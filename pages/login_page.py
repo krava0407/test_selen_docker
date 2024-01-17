@@ -3,6 +3,7 @@ from config.links import Links
 from selenium.webdriver.support import expected_conditions as EC
 import allure
 
+
 class LoginPage(BasePage):
 
     PAGE_URL = Links.LOGIN_PAGE
@@ -14,6 +15,7 @@ class LoginPage(BasePage):
     @allure.step(f"Enter login.")
     def enter_login(self, login: str):
         self.wait.until(EC.element_to_be_clickable(self.USERNAME_FIELD)).send_keys(login)
+
     @allure.step(f"Enter password.")
     def enter_password(self, password: str):
         self.wait.until(

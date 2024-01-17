@@ -1,24 +1,24 @@
 import time
 
 from pages.base_page import BasePage
+from pages.my_info_page import MyInfoPage
 from config.links import Links
 from selenium.webdriver.support import expected_conditions as EC
 import allure
 from selenium.webdriver import Keys
 
 
-class PersonalPage(BasePage):
+class PersonalPage(MyInfoPage):
 
     PAGE_URL = Links.PERSONAL_PAGE
 
     FIRST_NAME_FIELD = ("xpath", "//input[@name='firstName']")
     BUTTON_SAVE = ("xpath", "//button[@type='submit'][1]")
-    SPINNER = ("xpath", "//div[@class='oxd-loading-spinner']")
 
     def change_name(self, new_name: str):
         with allure.step(f"Change name on {new_name}"):
             first_name = self.wait.until(EC.element_to_be_clickable(self.FIRST_NAME_FIELD))
-            # first_name.clear()
+            first_name.clear()
             first_name.send_keys(Keys.COMMAND + "A")
             first_name.send_keys(Keys.BACKSPACE)
             first_name.send_keys(new_name)

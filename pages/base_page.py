@@ -1,3 +1,4 @@
+from selenium.webdriver import ActionChains
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import allure
@@ -9,6 +10,8 @@ class BasePage:
     def __init__(self, driver):
         self.driver = driver
         self.wait = WebDriverWait(driver, 20, poll_frequency=1)
+        self.action = ActionChains(self.driver)
+
 
     def open(self):
         with allure.step(f"Open {self.PAGE_URL} page."):
