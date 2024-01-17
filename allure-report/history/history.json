@@ -1,0 +1,1 @@
+{"48814a8dec1be52c97ddc4b9a3922e38":{"statistic":{"failed":0,"broken":0,"skipped":0,"passed":2,"unknown":0,"total":2},"items":[{"uid":"ee3f1920b7b30df5","status":"passed","time":{"start":1705493817106,"stop":1705493827683,"duration":10577}},{"uid":"704bca9118b3251","status":"passed","time":{"start":1705493568414,"stop":1705493578850,"duration":10436}}]}}
