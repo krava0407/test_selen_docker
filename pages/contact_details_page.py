@@ -26,6 +26,8 @@ class ContactDetailsPage(MyInfoPage):
 
     @allure.step(f"Click on my info page.")
     def click_contact_details_link(self):
+        self.scroll_to_top_js()
+        self.wait.until(EC.presence_of_element_located(self.CONTACT_DETAILS_BUTTON))
         self.wait.until(EC.element_to_be_clickable(self.CONTACT_DETAILS_BUTTON)).click()
 
     @allure.step(f"Enter street 1.")

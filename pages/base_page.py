@@ -12,7 +12,6 @@ class BasePage:
         self.wait = WebDriverWait(driver, 20, poll_frequency=1)
         self.action = ActionChains(self.driver)
 
-
     def open(self):
         with allure.step(f"Open {self.PAGE_URL} page."):
             self.driver.get(self.PAGE_URL)
@@ -27,3 +26,13 @@ class BasePage:
             name=screenshot_name,
             attachment_type=AttachmentType.PNG
         )
+
+    def scroll_to_top_js (self):
+        with allure.step(f"Make JS script - hover"):
+            script = """
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            """
+            self.driver.execute_script(script)
