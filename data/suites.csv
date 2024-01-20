@@ -1,2 +1,2 @@
 "Status","Start Time","Stop Time","Duration in ms","Parent Suite","Suite","Sub Suite","Test Class","Test Method","Name","Description"
-"broken","Sat Jan 20 23:24:42 GMT 2024","Sat Jan 20 23:24:42 GMT 2024","0","tests","feature_profile_test","TestProfileFuture","","","Change profile name.",""
+"broken","Sat Jan 20 23:46:58 GMT 2024","Sat Jan 20 23:46:58 GMT 2024","0","tests","feature_profile_test","TestProfileFuture","","","Change profile name.",""
