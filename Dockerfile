@@ -28,3 +28,7 @@ COPY ./requirements.txt /usr/workspace
 
 # Install Python dependencies
 RUN python -m pip install -r requirements.txt
+
+# Install charset_normalizer
+RUN python pip install charset_normalizer
+
