@@ -1,0 +1,221 @@
+{
+  "uid" : "f72c359f442bb8bf",
+  "name" : "Change profile name.",
+  "fullName" : "tests.feature_profile_test.TestProfileFuture#test_change_profile_name",
+  "historyId" : "48814a8dec1be52c97ddc4b9a3922e38",
+  "time" : {
+    "start" : 1705878663874,
+    "stop" : 1705878663874,
+    "duration" : 0
+  },
+  "status" : "broken",
+  "statusMessage" : "AttributeError: 'NoneType' object has no attribute 'split'",
+  "statusTrace" : "request = <SubRequest 'chrome_driver' for <Function test_change_profile_name>>\n\n    @pytest.fixture(scope=\"function\", autouse=True)\n    def chrome_driver(request):\n        # Создание объекта ChromeOptions и добавление опций\n        chrome_options = ChromeOptions()\n        chrome_options.add_argument(\"--headless\")\n        chrome_options.add_argument(\"--no-sandbox\")\n        chrome_options.add_argument(\"--disable-dev-shm-usage\")\n        # options.add_argument(\"--window-size=1920,1080\")\n        chrome_options.add_argument(\"--disable-extensions\")\n        # Создание объекта ChromeService с использованием ChromeDriverManager\n>       chrome_service = ChromeService(ChromeDriverManager().install())\n\nconftest.py:22: \n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n../local/lib/python3.12/site-packages/webdriver_manager/chrome.py:40: in install\n    driver_path = self._get_driver_binary_path(self.driver)\n../local/lib/python3.12/site-packages/webdriver_manager/core/manager.py:40: in _get_driver_binary_path\n    file = self._download_manager.download_file(driver.get_driver_download_url(os_type))\n../local/lib/python3.12/site-packages/webdriver_manager/drivers/chrome.py:32: in get_driver_download_url\n    driver_version_to_download = self.get_driver_version_to_download()\n../local/lib/python3.12/site-packages/webdriver_manager/core/driver.py:48: in get_driver_version_to_download\n    return self.get_latest_release_version()\n_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ \n\nself = <webdriver_manager.drivers.chrome.ChromeDriver object at 0x7f94aca5b800>\n\n    def get_latest_release_version(self):\n        determined_browser_version = self.get_browser_version_from_os()\n        log(f\"Get LATEST {self._name} version for {self._browser_type}\")\n        if determined_browser_version is not None and version.parse(determined_browser_version) >= version.parse(\"115\"):\n            url = \"https://googlechromelabs.github.io/chrome-for-testing/latest-patch-versions-per-build.json\"\n            response = self._http_client.get(url)\n            response_dict = json.loads(response.text)\n            determined_browser_version = response_dict.get(\"builds\").get(determined_browser_version).get(\"version\")\n            return determined_browser_version\n        # Remove the build version (the last segment) from determined_browser_version for version < 113\n>       determined_browser_version = \".\".join(determined_browser_version.split(\".\")[:3])\nE       AttributeError: 'NoneType' object has no attribute 'split'\n\n../local/lib/python3.12/site-packages/webdriver_manager/drivers/chrome.py:64: AttributeError",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ {
+    "name" : "chrome_driver",
+    "time" : {
+      "start" : 1705878663874,
+      "stop" : 1705878663882,
+      "duration" : 8
+    },
+    "status" : "broken",
+    "statusMessage" : "AttributeError: 'NoneType' object has no attribute 'split'\n",
+    "statusTrace" : "  File \"/usr/local/lib/python3.12/site-packages/pluggy/_callers.py\", line 77, in _multicall\n    res = hook_impl.function(*args)\n          ^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/_pytest/fixtures.py\", line 1123, in pytest_fixture_setup\n    result = call_fixture_func(fixturefunc, request, kwargs)\n             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/_pytest/fixtures.py\", line 895, in call_fixture_func\n    fixture_result = next(generator)\n                     ^^^^^^^^^^^^^^^\n  File \"/usr/workspace/conftest.py\", line 22, in chrome_driver\n    chrome_service = ChromeService(ChromeDriverManager().install())\n                                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/webdriver_manager/chrome.py\", line 40, in install\n    driver_path = self._get_driver_binary_path(self.driver)\n                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/webdriver_manager/core/manager.py\", line 40, in _get_driver_binary_path\n    file = self._download_manager.download_file(driver.get_driver_download_url(os_type))\n                                                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/webdriver_manager/drivers/chrome.py\", line 32, in get_driver_download_url\n    driver_version_to_download = self.get_driver_version_to_download()\n                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/webdriver_manager/core/driver.py\", line 48, in get_driver_version_to_download\n    return self.get_latest_release_version()\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n  File \"/usr/local/lib/python3.12/site-packages/webdriver_manager/drivers/chrome.py\", line 64, in get_latest_release_version\n    determined_browser_version = \".\".join(determined_browser_version.split(\".\")[:3])\n                                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n",
+    "steps" : [ ],
+    "attachments" : [ ],
+    "parameters" : [ ],
+    "attachmentsCount" : 0,
+    "shouldDisplayMessage" : true,
+    "hasContent" : true,
+    "stepsCount" : 0
+  } ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "feature",
+    "value" : "Profile functionality"
+  }, {
+    "name" : "severity",
+    "value" : "Critical."
+  }, {
+    "name" : "tag",
+    "value" : "smoke"
+  }, {
+    "name" : "parentSuite",
+    "value" : "tests"
+  }, {
+    "name" : "suite",
+    "value" : "feature_profile_test"
+  }, {
+    "name" : "subSuite",
+    "value" : "TestProfileFuture"
+  }, {
+    "name" : "host",
+    "value" : "9352a323c7db"
+  }, {
+    "name" : "thread",
+    "value" : "1-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "tests.feature_profile_test"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ {
+      "name" : "Test defects",
+      "matchedStatuses" : [ ],
+      "flaky" : false
+    } ],
+    "history" : {
+      "statistic" : {
+        "failed" : 0,
+        "broken" : 11,
+        "skipped" : 0,
+        "passed" : 4,
+        "unknown" : 0,
+        "total" : 15
+      },
+      "items" : [ {
+        "uid" : "cc655f75ef62a24a",
+        "status" : "passed",
+        "time" : {
+          "start" : 1705873618145,
+          "stop" : 1705873639526,
+          "duration" : 21381
+        }
+      }, {
+        "uid" : "83bcdf9232810f2f",
+        "status" : "broken",
+        "statusDetails" : "selenium.common.exceptions.WebDriverException: Message: unknown error: Chrome failed to start: exited abnormally.\n  (unknown error: DevToolsActivePort file doesn't exist)\n  (The process started from chrome location /usr/bin/chromium-browser is no longer running, so ChromeDriver is assuming that Chrome has crashed.)",
+        "time" : {
+          "start" : 1705867733211,
+          "stop" : 1705867733211,
+          "duration" : 0
+        }
+      }, {
+        "uid" : "9930cafe213f6b43",
+        "status" : "broken",
+        "statusDetails" : "selenium.common.exceptions.WebDriverException: Message: unknown error: Chrome failed to start: exited abnormally.\n  (unknown error: DevToolsActivePort file doesn't exist)\n  (The process started from chrome location /usr/bin/chromium-browser is no longer running, so ChromeDriver is assuming that Chrome has crashed.)",
+        "time" : {
+          "start" : 1705864335898,
+          "stop" : 1705864335898,
+          "duration" : 0
+        }
+      }, {
+        "uid" : "9ffecf9581b16fba",
+        "status" : "passed",
+        "time" : {
+          "start" : 1705863199045,
+          "stop" : 1705863216098,
+          "duration" : 17053
+        }
+      }, {
+        "uid" : "902130ae637c1dbd",
+        "status" : "broken",
+        "statusDetails" : "selenium.common.exceptions.WebDriverException: Message: unknown error: Chrome failed to start: exited abnormally.\n  (unknown error: DevToolsActivePort file doesn't exist)\n  (The process started from chrome location /usr/bin/chromium-browser is no longer running, so ChromeDriver is assuming that Chrome has crashed.)",
+        "time" : {
+          "start" : 1705794418117,
+          "stop" : 1705794418117,
+          "duration" : 0
+        }
+      }, {
+        "uid" : "f7ae510ea7bf2eb0",
+        "status" : "broken",
+        "statusDetails" : "selenium.common.exceptions.WebDriverException: Message: unknown error: Chrome failed to start: exited abnormally.\n  (unknown error: DevToolsActivePort file doesn't exist)\n  (The process started from chrome location /usr/bin/chromium-browser is no longer running, so ChromeDriver is assuming that Chrome has crashed.)",
+        "time" : {
+          "start" : 1705793082881,
+          "stop" : 1705793082881,
+          "duration" : 0
+        }
+      }, {
+        "uid" : "238947b9debe18c5",
+        "status" : "broken",
+        "statusDetails" : "selenium.common.exceptions.WebDriverException: Message: unknown error: Chrome failed to start: exited abnormally.\n  (unknown error: DevToolsActivePort file doesn't exist)\n  (The process started from chrome location /usr/bin/chromium-browser is no longer running, so ChromeDriver is assuming that Chrome has crashed.)",
+        "time" : {
+          "start" : 1705609685642,
+          "stop" : 1705609685642,
+          "duration" : 0
+        }
+      }, {
+        "uid" : "33583368257e828",
+        "status" : "broken",
+        "statusDetails" : "selenium.common.exceptions.WebDriverException: Message: unknown error: Chrome failed to start: exited abnormally.\n  (unknown error: DevToolsActivePort file doesn't exist)\n  (The process started from chrome location /usr/bin/chromium-browser is no longer running, so ChromeDriver is assuming that Chrome has crashed.)",
+        "time" : {
+          "start" : 1705568672014,
+          "stop" : 1705568672014,
+          "duration" : 0
+        }
+      }, {
+        "uid" : "c7d1ffa41a6bac81",
+        "status" : "broken",
+        "statusDetails" : "selenium.common.exceptions.WebDriverException: Message: unknown error: Chrome failed to start: exited abnormally.\n  (unknown error: DevToolsActivePort file doesn't exist)\n  (The process started from chrome location /usr/bin/chromium-browser is no longer running, so ChromeDriver is assuming that Chrome has crashed.)",
+        "time" : {
+          "start" : 1705534447748,
+          "stop" : 1705534447748,
+          "duration" : 0
+        }
+      }, {
+        "uid" : "73d4909222400b9e",
+        "status" : "broken",
+        "statusDetails" : "selenium.common.exceptions.WebDriverException: Message: unknown error: Chrome failed to start: exited abnormally.\n  (unknown error: DevToolsActivePort file doesn't exist)\n  (The process started from chrome location /usr/bin/chromium-browser is no longer running, so ChromeDriver is assuming that Chrome has crashed.)",
+        "time" : {
+          "start" : 1705531687476,
+          "stop" : 1705531687476,
+          "duration" : 0
+        }
+      }, {
+        "uid" : "c1c7ca7141272c21",
+        "status" : "broken",
+        "statusDetails" : "selenium.common.exceptions.WebDriverException: Message: unknown error: Chrome failed to start: exited abnormally.\n  (unknown error: DevToolsActivePort file doesn't exist)\n  (The process started from chrome location /usr/bin/chromium-browser is no longer running, so ChromeDriver is assuming that Chrome has crashed.)",
+        "time" : {
+          "start" : 1705531190031,
+          "stop" : 1705531190031,
+          "duration" : 0
+        }
+      }, {
+        "uid" : "c655742a37027939",
+        "status" : "broken",
+        "statusDetails" : "selenium.common.exceptions.WebDriverException: Message: unknown error: Chrome failed to start: exited abnormally.\n  (unknown error: DevToolsActivePort file doesn't exist)\n  (The process started from chrome location /usr/bin/chromium-browser is no longer running, so ChromeDriver is assuming that Chrome has crashed.)",
+        "time" : {
+          "start" : 1705530948912,
+          "stop" : 1705530948912,
+          "duration" : 0
+        }
+      }, {
+        "uid" : "82df33f87b302358",
+        "status" : "passed",
+        "time" : {
+          "start" : 1705494620832,
+          "stop" : 1705494631937,
+          "duration" : 11105
+        }
+      }, {
+        "uid" : "cf0b5082bce84598",
+        "status" : "passed",
+        "time" : {
+          "start" : 1705492979591,
+          "stop" : 1705492990005,
+          "duration" : 10414
+        }
+      } ]
+    },
+    "tags" : [ "smoke" ]
+  },
+  "source" : "f72c359f442bb8bf.json",
+  "parameterValues" : [ ]
+}

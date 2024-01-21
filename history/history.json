@@ -2,13 +2,22 @@
   "48814a8dec1be52c97ddc4b9a3922e38" : {
     "statistic" : {
       "failed" : 0,
-      "broken" : 10,
+      "broken" : 11,
       "skipped" : 0,
       "passed" : 4,
       "unknown" : 0,
-      "total" : 14
+      "total" : 15
     },
     "items" : [ {
+      "uid" : "f72c359f442bb8bf",
+      "status" : "broken",
+      "statusDetails" : "AttributeError: 'NoneType' object has no attribute 'split'",
+      "time" : {
+        "start" : 1705878663874,
+        "stop" : 1705878663874,
+        "duration" : 0
+      }
+    }, {
       "uid" : "cc655f75ef62a24a",
       "status" : "passed",
       "time" : {
