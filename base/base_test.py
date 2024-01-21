@@ -9,13 +9,13 @@ from pages.personal_page import PersonalPage
 
 class BaseTest:
 
-    data: Data
-
-    login_page: LoginPage
-    dashboard_page: DashboardPage
-    personal_page: PersonalPage
-    contact_details_page: ContactDetailsPage
-    my_info_page: MyInfoPage
+    # data: Data
+    #
+    # login_page: LoginPage
+    # dashboard_page: DashboardPage
+    # personal_page: PersonalPage
+    # contact_details_page: ContactDetailsPage
+    # my_info_page: MyInfoPage
 
     @pytest.fixture(autouse=True)
     def setup(self, request, chrome_driver):
